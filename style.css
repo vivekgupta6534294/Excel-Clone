@@ -14,6 +14,7 @@
 
 }
 .cells-content{
+    position: relative;
     height: 85vh;
     background-color: aqua;
     overflow: auto;
@@ -64,7 +65,7 @@
     background-color:grey;
     position:absolute;
     left:0px;
-    top:90px;
+    top:30px;
 
 }
 .left-col-cell{
@@ -79,7 +80,7 @@
 }
 .cells{
     position:absolute;
-    top: 90px;
+    top: 30px;
     left:30px;
 }
 
