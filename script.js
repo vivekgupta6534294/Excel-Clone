@@ -14,16 +14,14 @@ cellsContentDiv.addEventListener("scroll", function(e) {
 })
 for (let i = 0; i < allCells.length; i++) {
     allCells[i].addEventListener("click", function(e) {
-        let rowId = Number(e.target.getAttribute("rowid"));
-        let colid = Number(e.target.getAttribute("colid"));
-        let address = String.fromCharCode(65 + colid) + (rowId + 1) + "";
+        let { rowId, colId } = getRowIdColIdFromElement(e.target);
+        let address = String.fromCharCode(65 + colId) + (rowId + 1) + "";
         // console.log(address);
         addressInput.value = address;
     })
     allCells[i].addEventListener("blur", function(e) {
         let cellValue = e.target.textContent;
-        let rowId = e.target.getAttribute("rowid");
-        let colId = e.target.getAttribute("colid");
+        let { rowId, colId } = getRowIdColIdFromElement(e.target);
         let cellObject = db[rowId][colId];
         if (cellObject.value == cellValue) {
             return;
@@ -32,4 +30,13 @@ for (let i = 0; i < allCells.length; i++) {
         console.log(cellObject);
     })
 
+}
+
+function getRowIdColIdFromElement(element) {
+    let rowId = element.getAttribute("rowid");
+    let colId = element.getAttribute("colid");
+    return {
+        rowId,
+        colId
+    }
 }
