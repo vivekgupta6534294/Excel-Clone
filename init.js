@@ -26,7 +26,7 @@ function initCells() {
         cellsContent += "<div class='row'>";
         // Coloumn
         for (let j = 0; j < 26; j++) {
-            cellsContent += "<div class='cell' contentEditable></div>";
+            cellsContent += `<div class = 'cell' rowid='${i}' colid='${j}' contentEditable></div>`
         }
         cellsContent += "</div>"
     }

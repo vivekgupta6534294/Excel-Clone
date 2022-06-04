@@ -89,3 +89,9 @@
     top: 30px;
     left: 30px;
 }
+
+#address {
+    text-align: center;
+    font-size: large;
+    width: 40px;
+}
