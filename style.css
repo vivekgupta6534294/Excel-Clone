@@ -1,117 +1,91 @@
-*{
+* {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
 }
-.menu-options{
+
+.menu-options {
     border: 0.5px solid black;
     height: 30px;
-
 }
-.address-content{
+
+.address-content {
     border: 0.5px solid black;
     height: 25px;
-
 }
-.cells-content{
+
+.cells-content {
     position: relative;
     height: 85vh;
     background-color: aqua;
     overflow: auto;
-
 }
-.sheets{
+
+.sheets {
     border: 0.5px solid;
     height: 30px;
-
 }
-.row{
+
+.row {
     display: flex;
 }
-.cell{
+
+.cell {
     border: 0.2px solid;
-    height: 30px;
+    min-height: 30px;
     width: 100px;
+    outline: none;
 }
-.top-left-cell{
+
+.top-left-cell {
     border-right: 0.1px solid;
     border-bottom: 0.1px solid;
     height: 30px;
     width: 30px;
     background-color: grey;
     position: absolute;
-
-
+    z-index: 2;
 }
-.top-row{
+
+.top-row {
     display: flex;
     position: absolute;
     background-color: rgb(198, 177, 177);
     left: 30px;
+    z-index: 1;
 }
-.top-row-cell{
 
-    height:30px;
-    width:100px;
+.top-row-cell {
+    height: 30px;
+    width: 100px;
     border-bottom: .1px solid;
     border-left: 0.1px solid;
     display: flex;
     justify-content: center;
     align-items: center;
-
-
+    /* z-index: 2; */
 }
-.left-col{
-    background-color:grey;
-    position:absolute;
-    left:0px;
-    top:30px;
 
+.left-col {
+    background-color: grey;
+    position: absolute;
+    left: 0px;
+    top: 30px;
+    z-index: 1;
+    ;
 }
-.left-col-cell{
+
+.left-col-cell {
     height: 30px;
     width: 30px;
     border-bottom: .1px solid;
     display: flex;
-    justify-content:center;
+    justify-content: center;
     align-items: center;
-
-
 }
-.cells{
-    position:absolute;
+
+.cells {
+    position: absolute;
     top: 30px;
-    left:30px;
+    left: 30px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
