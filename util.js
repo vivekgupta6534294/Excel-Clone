@@ -8,8 +8,11 @@ function solveFormula(formula,selfcellObject) {
             let { rowId, colId } = getRowIdColIdFromAddress(formulaComp);
             let cellObject = db[rowId][colId];
             let value = cellObject.value;
-            if(selfcellObject)
-                 cellObject.children.push(selfcellObject.name);
+            if(selfcellObject){
+                cellObject.children.push(selfcellObject.name);
+                selfcellObject.parent.push(cellObject.name);
+            }
+                 
             console.log(cellObject);
             formula = formula.replace(formulaComp, value);
         }
@@ -32,6 +35,18 @@ function updateChildren(cellObject){
         updateChildren(childCellObject);
     }
 
+}
+function removeFormula(cellObject){
+    for(let i=0;i<cellObject.parent.length;i++){
+        let parentName=cellObject.parent[i];
+        let {rowId,colId}=getRowIdColIdFromAddress(parentName);
+        let parentCellObject=db[rowId][colId];
+        let updateChildren=parentCellObject.children.filter(function(child){
+                return child!=cellObject.name;
+        })
+        parentCellObject.children=updateChildren;
+    }
+    cellObject.parent=[];
 }
 
 function getRowIdColIdFromElement(element) {

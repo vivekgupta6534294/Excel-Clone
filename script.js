@@ -39,6 +39,21 @@ for (let i = 0; i < allCells.length; i++) {
         console.log("After Update", cellObject);
         updateChildren(cellObject);// Update Karna Child ka Value !!
     })
+    allCells[i].addEventListener("keydown",function(e){
+        if(e.key=='Backspace'){
+            let cell=e.target;
+            let{rowId,colId}=getRowIdColIdFromElement(cell);
+            let cellObject=db[rowId][colId];
+            if(cellObject.formula){
+                //update db
+                cell.formula="";// update in db making formula null
+                //update ui
+                formulaInput.value="";// remove formula
+                cell.textContent="";// cell contextremove
+                removeFormula(cellObject);
+            }
+        }
+    })
 }
 
 
