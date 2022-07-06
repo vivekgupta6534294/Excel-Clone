@@ -38,6 +38,12 @@ for (let i = 0; i < allCells.length; i++) {
         cellObject.value = cellValue;
         console.log("After Update", cellObject);
         updateChildren(cellObject);// Update Karna Child ka Value !!
+        if(cellObject.visited){
+            return;
+        }
+        cellObject.visited = true;
+        visitedCells.push({"rowId":rowId,"colId":colId});
+  
     })
     allCells[i].addEventListener("keydown",function(e){
         if(e.key=='Backspace'){
